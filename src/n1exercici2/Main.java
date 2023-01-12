@@ -9,25 +9,32 @@ public class Main {
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		
-	//Crea i emplena un List<Integer> 
-	ArrayList<Integer> listaNumbers = new ArrayList<Integer>(); // Create an ArrayList object
-	listaNumbers.add(3);
-	listaNumbers.add(1);
-	listaNumbers.add(6);
-	listaNumbers.add(10);
-    System.out.println(listaNumbers);
+//Crea i emplena un List<Integer> 
+	ArrayList<Integer> firstArrayL = new ArrayList<Integer>(); // Create an ArrayList object
+	firstArrayL.add(3);
+	firstArrayL.add(1);
+	firstArrayL.add(6);
+	firstArrayL.add(10);
+    System.out.println(firstArrayL);
     
-    //Crea un segon List<Integer> i insereix a la segona llista els elements de la primera en ordre invers. 
+//Crea un segon List<Integer> i insereix a la segona llista els elements de la primera en ordre invers. 
 	
-    ArrayList<Integer> numbersInverseOrden = new ArrayList<Integer>(listaNumbers); // Create an ArrayList object
-    Collections.sort(numbersInverseOrden);
-    System.out.println(numbersInverseOrden);
+    ArrayList<Integer> SecondArrayL = new ArrayList<Integer>(firstArrayL); // Create an ArrayList object
+    Collections.sort(SecondArrayL);
     
-    //Empra els objectes ListIterator per a llegir els elements de la primera llista i inserir-los en la segona.
-    numbersInverseOrden.clear();
-    //System.out.println(numbersInverseOrden);
-    Iterator<Integer> objetoCliente= listaNumbers.iterator();
+    System.out.println(SecondArrayL);
+  
+//Empra els objectes ListIterator per a llegir els elements de la primera llista i inserir-los en la segona.
+    
+    SecondArrayL.clear();
+    
+    Iterator<Integer> objetoCliente= firstArrayL.iterator();
 	
+    while (objetoCliente.hasNext()) {
+    	Integer number = objetoCliente.next();
+    	System.out.println(number);
+    	SecondArrayL.add(number);
+		}
+    System.out.println(SecondArrayL);
 	}
-
 }
