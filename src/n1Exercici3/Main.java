@@ -5,9 +5,9 @@ import java.io.FileNotFoundException;  // Import this class to handle errors
 import java.util.Scanner; // Import the Scanner class to read text files
 import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.Scanner;
 import java.util.Set;
 import java.io.IOException;  // Import the IOException class to handle errors
+import java.io.FileWriter;   // Import the FileWriter class
 
 
 public class Main {
@@ -45,9 +45,9 @@ public class Main {
 		    }
 		
 		// main program
-		System.out.println(totalscore10());
 		// create a File.txt
-		CreateFile();
+		
+		CreateFile(totalscore10(), askParametroReturnString("Enter your name !"));
 	}
 	
 	public static int totalscore10() {
@@ -90,20 +90,27 @@ public class Main {
 		return score;
 	}
 	
-	public static void CreateFile () {
+	public static void CreateFile (int puntuacion, String name) {
 		
-		    try {
-		      File myObj = new File("C:\\Users\\azoli\\eclipse-workspace\\Tasca S1.03- Java Collections\\src\\n1Exercici3\\classificacio.txt");
-		      if (myObj.createNewFile()) {
-		        System.out.println("File created: " + myObj.getName());
-		      } else {
-		        System.out.println("File already exists.");
-		      }
+		String ruta= "C:\\Users\\azoli\\eclipse-workspace\\Tasca S1.03- Java Collections\\src\\n1Exercici3\\classificacio.txt";    
+				
+		try {
+		      FileWriter myWriter = new FileWriter(ruta);
+		      myWriter.write("your name: "+ name+ "your score is: " + " "+puntuacion);
+		      myWriter.close();
+		      System.out.println("Successfully wrote to the file.");
 		    } catch (IOException e) {
 		      System.out.println("An error occurred.");
 		      e.printStackTrace();
 		    }
 		  
 		}
+	
+	public static String askParametroReturnString(String notas) {
+		System.out.print(notas);		
+		Scanner user =new Scanner(System.in); // Import the Scanner class
+		String parametroSalida= user.nextLine();
+		return parametroSalida;
+	}
 }
 	

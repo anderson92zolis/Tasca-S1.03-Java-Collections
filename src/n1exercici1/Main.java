@@ -36,8 +36,8 @@ public class Main {
 		
 		//System.out.println(ArrayMonth);
 		
-		Month monthrRepeat= new Month("Enero");
-		ArrayMonth.add(monthrRepeat);
+		Month monthRepeat= new Month("Enero");
+		ArrayMonth.add(monthRepeat);
 		
 		//System.out.println(" RepeatedMonth"+ ArrayMonth);
 		//Converteix l’ArrayList de l’exercici anterior en un HashSet i assegura’t que no permet duplicats.		

@@ -19,9 +19,12 @@ public class Main {
     
 //Crea un segon List<Integer> i insereix a la segona llista els elements de la primera en ordre invers. 
 	
-    ArrayList<Integer> SecondArrayL = new ArrayList<Integer>(firstArrayL); // Create an ArrayList object
-    Collections.sort(SecondArrayL);
-    
+    //ArrayList<Integer> SecondArrayL = new ArrayList<Integer>(firstArrayL); // Create an ArrayList object
+    //Collections.sort(SecondArrayL);
+    ArrayList<Integer> SecondArrayL = new ArrayList<Integer>();
+    for (Integer i=firstArrayL.size()-1; i>= 0; i-- ) {
+    	SecondArrayL.add(firstArrayL.get(i));
+    	}
     System.out.println(SecondArrayL);
   
 //Empra els objectes ListIterator per a llegir els elements de la primera llista i inserir-los en la segona.
