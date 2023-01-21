@@ -97,6 +97,8 @@ public class Main {
 		try {
 		      FileWriter myWriter = new FileWriter(ruta);
 		      myWriter.write("your name: "+ name+ "your score is: " + " "+puntuacion);
+		      myWriter.write("\n");
+		      myWriter.write("siguiente paguina");
 		      myWriter.close();
 		      System.out.println("Successfully wrote to the file.");
 		    } catch (IOException e) {
