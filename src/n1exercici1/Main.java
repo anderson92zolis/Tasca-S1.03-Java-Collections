@@ -6,7 +6,12 @@ public class Main {
 	static ArrayList<Month> ArrayMonth= new ArrayList<Month>();
 
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
+		
+		/*
+		 * Crea una classe anomenada Month amb un atribut "name" (que emmagatzemarà el nom del 
+		 * mes de l'any). Afegeix 11 objectes Month (cadascun amb el seu atribut diferent) en un 
+		 * ArrayList, a excepció de l'objecte amb atribut "Agost". Després, efectua la inserció en el lloc que correspon a aquest mes i demostra que l’ArrayList manté l'ordre correcte. 
+		 */
 		
 		Month month1= new Month("Enero"); 
 		Month month2= new Month("Febrero");
@@ -28,27 +33,37 @@ public class Main {
 		ArrayMonth.add(month5);
 		ArrayMonth.add(month6);
 		ArrayMonth.add(month7);
-		ArrayMonth.add(month8);
+		
 		ArrayMonth.add(month9);
 		ArrayMonth.add(month10);
 		ArrayMonth.add(month11);
 		ArrayMonth.add(month12);
 		
-		//System.out.println(ArrayMonth);
+		ArrayMonth.add(7, month8 );
+	
 		
-		Month monthRepeat= new Month("Enero");
-		ArrayMonth.add(monthRepeat);
-		
-		//System.out.println(" RepeatedMonth"+ ArrayMonth);
-		//Converteix l’ArrayList de l’exercici anterior en un HashSet i assegura’t que no permet duplicats.		
-		Set <Month> ArrayMonthHashSet = new HashSet<Month>(ArrayMonth);
-		
-		
-		//System.out.println(ArrayMonthHashSet);
-		//Empra els objectes ListIterator per a llegir els elements de la primera llista i inserir-los en la segona.
-		for (Month month : ArrayMonthHashSet) {
-			  System.out.println(month.getName());
+		for (Month monthArrayL : ArrayMonth) {
+			  System.out.println("los meses en la ArrayList son: " + monthArrayL.getName());
 		}
+		
+		//Converteix l’ArrayList de l’exercici anterior en un HashSet i assegura’t que no permet duplicats.		
+		// Para evitar que se repitan se trabaja con hashCode() & equals(Object obj)
+		Set <Month> ArrayMonthHashSet = new HashSet<Month>(ArrayMonth); 
+		
+		Month monthRepeat= new Month("Enero"); // para comprobar si se repite
+		ArrayMonthHashSet.add(monthRepeat);		
+		
+		for (Month month : ArrayMonthHashSet) {
+			  System.out.println("los meses en HashSet, Se comprueba que no se repite(Enero): "+ month.getName());
+		}
+		
+		//Empra els objectes ListIterator per a llegir els elements de la primera llista i inserir-los en la segona.
+		
+		Iterator<Month> iteratordelHashSet= ArrayMonthHashSet.iterator();
+		
+		while(iteratordelHashSet.hasNext()) {
+			System.out.println("los meses en el iterator son: "+ iteratordelHashSet.next().getName());;
+			}
 	}
 
 }

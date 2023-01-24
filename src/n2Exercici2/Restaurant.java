@@ -1,9 +1,8 @@
 package n2Exercici2;
 
-//import java.util.Comparator;
 import java.util.Objects;
 
-public class Restaurant  /*implementsComparator<Restaurant> */ {   
+public class Restaurant  implements Comparable<Restaurant>  {   
 	
 	private String nom;
 	private int puntuacio;
@@ -51,24 +50,31 @@ public class Restaurant  /*implementsComparator<Restaurant> */ {
 	public String toString() {
 		return "Clase Restaurant [nom=" + nom + ", puntuacio=" + puntuacio + "]";
 	}
-	/*@Override                         // esto implementando Comparator pero trabajaré desde el main con una clase interna
-	public int compare(Restaurant o1, Restaurant o2) {
+	
+	// podemos implementar comparator clase interna anonimas cuando creamos Treeset
+	@Override
+	public int compareTo(Restaurant o) {
 		// TODO Auto-generated method stub
-		int numeroReturn= 100;
-		if (o1.getNom().compareTo(o2.getNom())==0) {
-			if (o1.getPuntuacio()<o2.getPuntuacio()) {
-				numeroReturn=-1;
+		int numeroReturn= 0;
+		
+		if (this.getNom().compareTo(o.getNom())==0) {
+			
+			if (this.getPuntuacio()< o.getPuntuacio()) {
+				numeroReturn=1;
 				} 
-			else if (o1.getPuntuacio()== o2.getPuntuacio()) {
+			else if (this.getPuntuacio()== o.getPuntuacio()) {
 				numeroReturn=0;}
-			else {numeroReturn= 1 ;
+			else {
+				numeroReturn= -1 ;
 				}	
 		} 
-		else if (o1.getNom().compareTo(o2.getNom())==0) {
-			} else {
+		else if (this.getNom().compareTo(o.getNom())<0) {
+			
+			numeroReturn=-1;
+			
+		} else {
 				numeroReturn=1;
 				}
 		return numeroReturn;
-	}*/
-	
+		}	
 }

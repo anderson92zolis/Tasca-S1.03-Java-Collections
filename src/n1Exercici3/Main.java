@@ -27,30 +27,37 @@ public class Main {
 	 Un cop demanades les capitals de 10 països de forma aleatòria, llavors s’ha de guardar 
 	 en un fitxer anomenat classificacio.txt, el nom de l’usuari/ària i la seva puntuació.
 		 */
-		// import the file.txt
-		try {
+		
+		
+	// import the data from a file and save in a HashMap
+		
+		try {						//FILE PATH
 		      File myObj = new File("C:\\Users\\azoli\\eclipse-workspace\\Tasca S1.03- Java Collections\\src\\n1Exercici3\\countries.txt");
 		      Scanner myReader = new Scanner(myObj);
 		      while (myReader.hasNextLine()) {
 		        String data = myReader.nextLine();
 		        String [] dataArray= data.split(" ");
 		        CountriesAndCapitals.put(dataArray[0],dataArray[1]);
-		        //System.out.println("COUNTRIES: "+ dataArray[0]+" CAPITALS: "+dataArray[1]);
-		      }
-		      //System.out.println(CountriesAndCapitals);
+		      }		     
 		      myReader.close();
 		    } catch (FileNotFoundException e) {
 		      System.out.println("An error occurred.");
 		      e.printStackTrace();
 		    }
 		
-		// main program
-		// create a File.txt
 		
-		CreateFile(totalscore10(), askParametroReturnString("Enter your name !"));
+		// Main program
+		// Create a File.txt
+		
+		CreateFile(
+					totalscore10(), 
+					askParametroReturnString("\n "+ " What's your name:")
+					);
+	
 	}
 	
 	public static int totalscore10() {
+		// adding if the answer is correct until reach the score of 10/10 
 		int scoreOutofTen =0;
 		ArrayList<String> countries = returnArraysListKeysofCountriesfromHashMap();
 		for (int i =1; i<=10; i++) {
@@ -60,7 +67,7 @@ public class Main {
 
 			System.out.println("what is the capital of \" "+ randonCountry+" \"");
 			
-			System.out.print("Answer N.-"+i+" ---> "+"Enter the Capital City: ");
+			System.out.print("Answer N.-"+i+" ---> "+" Enter the Capital City: ");
 			Scanner myObj= new Scanner(System.in);
 			String askCapital = myObj.nextLine();
 			
@@ -70,20 +77,22 @@ public class Main {
 	}	
 	
 	public static ArrayList<String> returnArraysListKeysofCountriesfromHashMap() {
-		//HashSet<String> Countries= new HashSet<String>(CountriesAndCapitals.keySet());
+		//Return the Keys (countries) from a HashMap in Arraylist Type
 		Set<String> CountrieskeySet = CountriesAndCapitals.keySet();
 		ArrayList<String> CountriesInArray = new ArrayList<String>(CountrieskeySet);
 		return CountriesInArray;
 	}	
 	
 	public static String returnOneRandomCountryFromHashMap(ArrayList<String>CountriesInArray) {
+		//Retornamos un Pais de forma aleatoria. 
 		return 	CountriesInArray.get((int)(Math.random()* CountriesInArray.size()));
 		}
 	
 	public static int returnsScore1(String randonCountry,String answerCapitalCity){
+		// return 1 if the answer is correct
 		int score = 0 ;
 		String randonCapital=CountriesAndCapitals.get(randonCountry);
-		System.out.println("Correct answer!:  " +randonCapital);
+		System.out.println("The correct answer is :  " +randonCapital);
 		if (randonCapital.equalsIgnoreCase(answerCapitalCity)) {
 			score=1;
 			}
@@ -91,14 +100,14 @@ public class Main {
 	}
 	
 	public static void CreateFile (int puntuacion, String name) {
-		
+		//Create the File.txt
 		String ruta= "C:\\Users\\azoli\\eclipse-workspace\\Tasca S1.03- Java Collections\\src\\n1Exercici3\\classificacio.txt";    
 				
 		try {
 		      FileWriter myWriter = new FileWriter(ruta);
 		      myWriter.write("your name: "+ name+ "your score is: " + " "+puntuacion);
 		      myWriter.write("\n");
-		      myWriter.write("siguiente paguina");
+		      myWriter.write("siguiente página");
 		      myWriter.close();
 		      System.out.println("Successfully wrote to the file.");
 		    } catch (IOException e) {
@@ -109,6 +118,7 @@ public class Main {
 		}
 	
 	public static String askParametroReturnString(String notas) {
+		// 	Print the message and return a String	
 		System.out.print(notas);		
 		Scanner user =new Scanner(System.in); // Import the Scanner class
 		String parametroSalida= user.nextLine();

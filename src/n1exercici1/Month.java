@@ -3,6 +3,7 @@ package n1exercici1;
 import java.util.Objects;
 
 public class Month {
+	
 	private String name;
 	
 	public Month(String name) {
