@@ -22,37 +22,28 @@ public class Main {
     
 //Crea un segon List<Integer> i insereix a la segona llista els elements de la primera en ordre invers. 
 
-    ArrayList<Integer> SecondArrayL = new ArrayList<Integer>();
+    ArrayList<Integer> reversedNumbers = new ArrayList<Integer>();
     
-    for (int i=firstArrayL.size()-1; i>= 0; i-- ) {
-    	SecondArrayL.add(firstArrayL.get(i));
-    	}
+    ListIterator<Integer> iterator = firstArrayL.listIterator(firstArrayL.size());
     
-    for (int i: SecondArrayL) {
+    while (iterator.hasPrevious()) {
+        reversedNumbers.add(iterator.previous());
+    }
+          
+    for (int i: reversedNumbers) {
     	System.out.println("orden inverso: " +i);
     	}
   
 //Empra els objectes ListIterator per a llegir els elements de la primera llista i inserir-los en la segona.
     
-    SecondArrayL.clear(); // limpiamos la ArrayList2
     
     Iterator<Integer> objetoCliente= firstArrayL.iterator();
 	
     while (objetoCliente.hasNext()) {
     	Integer number = objetoCliente.next();
     	System.out.println("añadido a la segunda lista usando Iterator: " +number);
-    	SecondArrayL.add(number);
-		}
-    
-    // para añadir mediante un ListIterator en forma inverso
-    /*ListIterator objetoCliente = firstArrayL.listIterator(firstArrayL.size());
-	
-    while (objetoCliente.hasPrevious()) {
-    	int number = ( int ) objetoCliente.previous();
-    	System.out.println(" orden inverso iterator : "+ number);
-    	SecondArrayL.add(number);
-		}*/
-    
+    	reversedNumbers.add(number);
+		}    
    
 	}
 }

@@ -30,26 +30,13 @@ public class Main {
 		
 		
 	// import the data from a file and save in a HashMap
+				
+		CountriesAndCapitals = FileManager.readTxt();
 		
-		try {						//FILE PATH
-		      File myObj = new File("C:\\Users\\azoli\\eclipse-workspace\\Tasca S1.03- Java Collections\\src\\n1Exercici3\\countries.txt");
-		      Scanner myReader = new Scanner(myObj);
-		      while (myReader.hasNextLine()) {
-		        String data = myReader.nextLine();
-		        String [] dataArray= data.split(" ");
-		        CountriesAndCapitals.put(dataArray[0],dataArray[1]);
-		      }		     
-		      myReader.close();
-		    } catch (FileNotFoundException e) {
-		      System.out.println("An error occurred.");
-		      e.printStackTrace();
-		    }
+	// Main program
+	// Create a File.txt
 		
-		
-		// Main program
-		// Create a File.txt
-		
-		CreateFile(
+	FileManager.CreateTxt(
 					totalscore10(), 
 					askParametroReturnString("\n "+ " What's your name:")
 					);
@@ -99,23 +86,7 @@ public class Main {
 		return score;
 	}
 	
-	public static void CreateFile (int puntuacion, String name) {
-		//Create the File.txt
-		String ruta= "C:\\Users\\azoli\\eclipse-workspace\\Tasca S1.03- Java Collections\\src\\n1Exercici3\\classificacio.txt";    
-				
-		try {
-		      FileWriter myWriter = new FileWriter(ruta);
-		      myWriter.write("your name: "+ name+ "your score is: " + " "+puntuacion);
-		      myWriter.write("\n");
-		      myWriter.write("siguiente página");
-		      myWriter.close();
-		      System.out.println("Successfully wrote to the file.");
-		    } catch (IOException e) {
-		      System.out.println("An error occurred.");
-		      e.printStackTrace();
-		    }
-		  
-		}
+	
 	
 	public static String askParametroReturnString(String notas) {
 		// 	Print the message and return a String	
