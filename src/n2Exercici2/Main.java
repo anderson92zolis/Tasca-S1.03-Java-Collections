@@ -6,9 +6,21 @@ import java.util.TreeSet;
 
 public class Main {
 
-	public static void main(String[] args) {		
+	public static void main(String[] args) {	
+		
+		/*
+		 * Utilitzant la classe del programa anterior, crea la implementació necessària perquè els objectes de la classe Restaurant estiguin ordenats per nom i per puntuació en ordre ascendent. 
+
+		Exemple: 
+
+		nom: restaurant1, puntuació: 8
+
+		nom: restaurant1, puntuació: 7
+
+		 */
 	
-		HashSet<Restaurant> hashSetRestaurant = new HashSet<Restaurant>();
+		
+		TreeSet<Restaurant> ordeThreeSetRestaurant= new TreeSet<Restaurant>();
 		
 		Restaurant restaurant1= new Restaurant("TiaEmili",6);//iguales nom,punt
 		Restaurant restaurant2= new Restaurant("Albatroz",6);
@@ -17,40 +29,13 @@ public class Main {
 		Restaurant restaurant5= new Restaurant("TiaEmili",8);//iguales nom
 		Restaurant restaurant6= new Restaurant("TiaEmili",1);//iguales nom
 		
-		hashSetRestaurant.add(restaurant1);
-		hashSetRestaurant.add(restaurant2);
-		hashSetRestaurant.add(restaurant6);
-		hashSetRestaurant.add(restaurant3);
-		hashSetRestaurant.add(restaurant4);
-		hashSetRestaurant.add(restaurant5);
-		
-																			// podemos implementar comparator clase interna anonimas cuando creamos Treeset pildorasIn Vídeo 188
-		TreeSet<Restaurant> ordeThreeSetRestaurant= new TreeSet<Restaurant>(); /*new Comparator<Restaurant>(){
-			public int compare(Restaurant o1, Restaurant o2) {
-				int numeroReturn= 1;
-				if (o1.getNom().compareTo(o2.getNom())==0) {
-					
-					if (o1.getPuntuacio()<o2.getPuntuacio()) {
-						numeroReturn=1;
-						} 
-					else if (o1.getPuntuacio()== o2.getPuntuacio()) {
-						numeroReturn=0;}
-					else {
-						numeroReturn= -1 ;
-						}	
-				} 
-				else if (o1.getNom().compareTo(o2.getNom())<0) {
-					
-					numeroReturn=-1;
-					
-				} else {
-						numeroReturn=1;
-						}
-				return numeroReturn;
-					} 
-			})*/ ;	
-			
-		ordeThreeSetRestaurant.addAll(hashSetRestaurant);
+		ordeThreeSetRestaurant.add(restaurant1);
+		ordeThreeSetRestaurant.add(restaurant2);
+		ordeThreeSetRestaurant.add(restaurant6);
+		ordeThreeSetRestaurant.add(restaurant3);
+		ordeThreeSetRestaurant.add(restaurant4);
+		ordeThreeSetRestaurant.add(restaurant5);
+
 			
 		for( Restaurant listadoRestaurantsPorpuntuación: ordeThreeSetRestaurant) {
 			System.out.println("el restaurant: " + listadoRestaurantsPorpuntuación.getNom() + " té una puntuació de: "+listadoRestaurantsPorpuntuación.getPuntuacio());
